@@ -1,0 +1,61 @@
+from enum import Enum, auto
+
+
+class Palo(Enum):
+    pass
+class PaloEs(Palo):
+    ORO = auto()
+    COPA = auto()
+    ESPADA = auto()
+    BASTO = auto()
+class PaloFr(Palo):
+    TREBOL = auto()
+    DIAMANTE = auto()
+    ESPADA = auto()
+    CORAZONES = auto()
+class Numero(Enum):
+    pass
+class NumeroEs(Numero):
+    AS=1
+    DOS=2
+    TRES=3
+    CUATRO=4
+    CINCO=5
+    SEIS=6
+    SIETE=7
+    OCHO=8
+    NUEVE=9
+    SOTA=10
+    CABALLO=11
+    REY=12
+class NumeroFr(Numero):
+    A=1
+    DOS=2
+    TRES=3
+    CUATRO=4
+    CINCO=5
+    SEIS=6
+    SIETE=7
+    OCHO=8
+    NUEVE=9
+    DIEZ=10
+    J=11
+    Q=12
+    K=13
+class Carta:
+    def __init__(self,tipo,numero):
+        self.tipo=tipo
+        self.numero=numero
+nueveDeEspada=Carta(PaloEs.ESPADA,NumeroEs(9))
+print(nueveDeEspada.tipo.name, nueveDeEspada.numero.name)
+
+import json
+data = {"nombre": "Gabriel", "edad": 24, "ciudad": "Buenos Aires"}
+
+json_str = json.dumps(data)
+with open("datos.json","w",encoding="utf-8") as archivo:
+    archivo.write(json_str)
+print("string de json",json_str) 
+# Convertir una cadena JSON a un diccionario
+data2 = json.loads(json_str)
+print("diccionario de python",data2['nombre'])
